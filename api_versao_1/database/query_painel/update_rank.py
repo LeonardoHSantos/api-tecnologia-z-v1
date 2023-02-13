@@ -8,9 +8,8 @@ from api_versao_1.valores_globais import var_globais
 def query_rank_painel():
     mercado = var_globais.LISTA_ATIVOS_ABERTOS[var_globais.LISTA_ATIVOS_ABERTOS.index==0]["mercado"].values[0]
     try:
-        db = conexao_db_api()
-        conn = db[0]
-        cursor = db[1]
+        conn = conexao_db_api()
+        cursor = conn.cursor()
 
     
         exp = expiracao_query_diaria()
@@ -33,9 +32,8 @@ def update_rankings(lista_rankings):
         print(lista_rankings[i])
     print("------------------------------------------")
     try:
-        db = conexao_db_api()
-        conn = db[0]
-        cursor = db[1]
+        conn = conexao_db_api()
+        cursor = conn.cursor()
 
         cont = 1
         print(">>>>>>> Banco de dados resetado.")
