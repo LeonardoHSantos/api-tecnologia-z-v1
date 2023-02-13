@@ -8,9 +8,8 @@ def atualizar_registro_database(df_resultados):
     print("------------------------------------------")
     
     try:
-        db = conexao_db_api()
-        conn = db[0]
-        cursor = db[1]
+        conn = conexao_db_api()
+        cursor = conn.cursor()
     
         for i in range(len(df_resultados)):
             print("----------------------------->>> DB CONECTADO")

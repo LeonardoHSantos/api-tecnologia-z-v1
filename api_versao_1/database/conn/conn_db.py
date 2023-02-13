@@ -10,5 +10,6 @@ def conexao_db_api():
         database = config_database.NAME_DB,
         port = config_database.PORT_DB
     )
-    cursor = conn.cursor()
-    return [conn, cursor]
+    # cursor = conn.cursor()
+    # return [conn, cursor]
+    return conn
