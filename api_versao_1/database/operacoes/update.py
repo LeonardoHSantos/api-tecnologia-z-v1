@@ -8,11 +8,16 @@ def atualizar_registro_database(df_resultados):
     print("------------------------------------------")
     
     try:
-        conn = conexao_db_api()
-        cursor = conn.cursor()
+        try:
+            conn = conexao_db_api()
+            cursor = conn.cursor()
+            print("----------------------------->>> DB CONECTADO")
+        except Exception as e:
+            print(f"----------------------------->>> FALHA AO SE CONECTAR COM DATABASE: {e}")
+
     
         for i in range(len(df_resultados)):
-            print("----------------------------->>> DB CONECTADO")
+            
             id_operacao = df_resultados["id_operacao"][i]
             resultado_op = df_resultados["resultado"][i]
 

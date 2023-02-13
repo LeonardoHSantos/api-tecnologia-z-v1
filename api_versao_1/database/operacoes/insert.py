@@ -6,9 +6,14 @@ def inserir_registro_database(dados):
     print(dados)
     print("------------------------------------------")
     try:
-        conn = conexao_db_api()
-        cursor = conn.cursor()
-        print("----------------------------->>> DB CONECTADO")
+        # conn = conexao_db_api()
+        # cursor = conn.cursor()
+        try:
+            conn = conexao_db_api()
+            cursor = conn.cursor()
+            print("----------------------------->>> DB CONECTADO")
+        except Exception as e:
+            print(f"----------------------------->>> FALHA AO SE CONECTAR COM DATABASE: {e}")
         id_operacao = dados["id_operacao"]
         index_operacao = dados["index_operacao"]
         user_id = dados["user_id"]

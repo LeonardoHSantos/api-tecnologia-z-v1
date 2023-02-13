@@ -8,8 +8,14 @@ from api_versao_1.valores_globais import var_globais
 def query_rank_painel():
     mercado = var_globais.LISTA_ATIVOS_ABERTOS[var_globais.LISTA_ATIVOS_ABERTOS.index==0]["mercado"].values[0]
     try:
-        conn = conexao_db_api()
-        cursor = conn.cursor()
+        # conn = conexao_db_api()
+        # cursor = conn.cursor()
+        try:
+            conn = conexao_db_api()
+            cursor = conn.cursor()
+            print("----------------------------->>> DB CONECTADO")
+        except Exception as e:
+            print(f"----------------------------->>> FALHA AO SE CONECTAR COM DATABASE: {e}")
 
     
         exp = expiracao_query_diaria()
@@ -32,8 +38,14 @@ def update_rankings(lista_rankings):
         print(lista_rankings[i])
     print("------------------------------------------")
     try:
-        conn = conexao_db_api()
-        cursor = conn.cursor()
+        # conn = conexao_db_api()
+        # cursor = conn.cursor()
+        try:
+            conn = conexao_db_api()
+            cursor = conn.cursor()
+            print("----------------------------->>> DB CONECTADO")
+        except Exception as e:
+            print(f"----------------------------->>> FALHA AO SE CONECTAR COM DATABASE: {e}")
 
         cont = 1
         print(">>>>>>> Banco de dados resetado.")
